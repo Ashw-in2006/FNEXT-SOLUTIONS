@@ -1,0 +1,138 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0e0e2c;
+  color: #ffffff;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Water Flow Background Animation */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url('https://i.ibb.co/0fhGRcz/wave-bg.png') repeat-x;
+  opacity: 0.1;
+  animation: wave 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Header */
+header {
+  background: #13143a;
+  padding: 2rem 0;
+  border-bottom: 2px solid #66fcf1;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #66fcf1;
+  object-fit: cover;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #66fcf1;
+  margin-top: 0.5rem;
+}
+
+.github-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #66fcf1;
+  color: #0e0e2c;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.github-btn:hover {
+  background-color: #45a29e;
+  color: #fff;
+}
+
+/* Sections */
+section {
+  padding: 3rem 0;
+  border-bottom: 1px solid #2d2d6a;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #66fcf1;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+ul li {
+  margin-bottom: 0.7rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+ul li::before {
+  content: "•";
+  color: #66fcf1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Contact Section */
+.contact a {
+  color: #fce38a;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #0b0c2d;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  border-top: 2px solid #1f1f49;
+}
