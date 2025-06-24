@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Motivating Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .counter-box {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 2rem;
+      width: 360px;
+      border-radius: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(to right, #00f260, #0575e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    #count {
+      font-size: 4.5rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      color: #ffde59;
+      text-shadow: 0 0 10px #ffde59;
+    }
+
+    #message {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      min-height: 3rem;
+      color: #eee;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .increase {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      box-shadow: 0 0 10px #0072ff;
+    }
+
+    .increase:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0072ff;
+    }
+
+    .decrease {
+      background: linear-gradient(to right, #f7971e, #ffd200);
+      color: #333;
+      box-shadow: 0 0 10px #ffd200;
+    }
+
+    .decrease:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffd200;
+    }
+
+    .reset {
+      background: linear-gradient(to right, #f857a6, #ff5858);
+      color: white;
+      box-shadow: 0 0 10px #ff5858;
+    }
+
+    .reset:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff5858;
+    }
+
+    @media (max-width: 420px) {
+      .counter-box {
+        width: 90%;
+        padding: 1.5rem;
+      }
+      h1 { font-size: 1.8rem; }
+      #count { font-size: 3.5rem; }
+      #message { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-box">
+    <h1>🏋️‍♂️ Workout Counter</h1>
+    <div id="count">0</div>
+    <div id="message">Push your limits one rep at a time! 💪</div>
+
+    <div class="btn-group">
+      <button class="increase" onclick="changeCount(1)">Increase</button>
+      <button class="decrease" onclick="changeCount(-1)">Decrease</button>
+      <button class="reset" onclick="resetCount()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const countDisplay = document.getElementById("count");
+    const messageDisplay = document.getElementById("message");
+
+    const messages = [
+      "Feel that burn 🔥",
+      "One more rep! 🏃‍♂️",
+      "Stay strong 💪",
+      "You got this! 🚀",
+      "Break limits, build gains ⚡",
+      "Grind now, shine later 🌟",
+      "Stronger every step! 🏋️",
+      "Discipline > Motivation 💯",
+      "Rep by rep, win the day 🎯",
+      "Beast mode activated 🐾"
+    ];
+
+    const negativeMessages = [
+      "It's okay to slow down. Breathe 🧘",
+      "Control the fall, own the rise ⬇️⬆️",
+      "Even athletes take a step back 🏁",
+      "Reset to rise again 🔁",
+      "Pace yourself, champion 🕊️"
+    ];
+
+    function changeCount(amount) {
+      count += amount;
+      countDisplay.textContent = count;
+      const quote = amount > 0
+        ? messages[Math.floor(Math.random() * messages.length)]
+        : negativeMessages[Math.floor(Math.random() * negativeMessages.length)];
+      messageDisplay.textContent = quote;
+    }
+
+    function resetCount() {
+      count = 0;
+      countDisplay.textContent = count;
+      messageDisplay.textContent = "Reset complete. Ready to dominate again! 🔄";
+    }
+  </script>
+</body>
+</html>
