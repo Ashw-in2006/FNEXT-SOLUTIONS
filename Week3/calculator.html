@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 3 | Basic Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .calculator h1 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    #display {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.5rem;
+      text-align: right;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.7rem;
+    }
+
+    button {
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #d0e6ff;
+    }
+
+    .zero {
+      grid-column: span 2;
+    }
+
+    .equal {
+      background-color: #4facfe;
+      color: white;
+    }
+
+    .equal:hover {
+      background-color: #3ba7ff;
+    }
+
+    .operator {
+      background-color: #ffe082;
+    }
+
+    .operator:hover {
+      background-color: #ffd54f;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Calculator</h1>
+    <input type="text" id="display" readonly />
+
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">⌫</button>
+      <button onclick="appendValue('/')">÷</button>
+      <button onclick="appendValue('*')" class="operator">×</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('-')" class="operator">−</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('+')" class="operator">+</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="calculate()" class="equal">=</button>
+
+      <button onclick="appendValue('0')" class="zero">0</button>
+      <button onclick="appendValue('.')">.</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
